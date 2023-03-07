@@ -2,28 +2,28 @@
 
 {% block content %}
     <h1>My Tasks</h1>
-    {% if tasks_object.all|length != 0%}
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Start date</th>
-                <th>Due date</th>
-                <th>Is completed</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for task in tasks_object.all %}
-            <tr>
-                <td>{{ task.name }}</td>
-                <td>{{ task.start_date }}</td>
-                <td>{{ task.due_date }}</td>
-                <td>{{ task.is_complete|yesno }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    {% if tasks_object.all|length != 0 %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Start date</th>
+                    <th>Due date</th>
+                    <th>Is completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks_object.all %}
+                    <tr>
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.start_date }}</td>
+                        <td>{{ task.due_date }}</td>
+                        <td>{{ task.is_complete|yesno }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% else %}
-    <p>You have no tasks</p>
+        <p>You have no tasks</p>
     {% endif %}
 {% endblock content %}
