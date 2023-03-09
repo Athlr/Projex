@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ project_object.name }}</h1>
-    <p>{{ project_object.description }}</p>
-    <h2>Tasks</h2>
-    <p>
-        <a href="{% url 'create_task' %}">Create a new task</a>
-    </p>
+    <h1 class="main-header center">{{ project_object.name }}</h1>
+    <p class="center">{{ project_object.description }}</p>
+    <h2 class="center">Tasks</h2>
     {% if project_object.tasks.all|length != 0 %}
-        <table>
+        <table class="table table-hover" id="remove-bottom-border">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Assignee</th>
                     <th>Start date</th>
                     <th>Due date</th>
-                    <th>Is completed</th>
+                    <th>Complete?</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,9 +25,17 @@
                         <td>{{ tasks.is_completed|yesno }}</td>
                     </tr>
                 {% endfor %}
+                <tr>
+                    <td colspan="100" class="linking">
+                        <a href="{% url 'create_task' %}" class="center bold"><b>Create a new task</b></a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     {% else %}
-        <p>This project has no tasks</p>
+        <p class="center">This project has no tasks</p>
+        <p class="center">
+            <a href="{% url 'create_task' %}" class="center bold"><b>Create a new task</b></a>
+        </p>
     {% endif %}
 {% endblock content %}
