@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="main-header center">Login</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="text-center">
-            <button class="btn btn-light">Create</button>
-        </div>
-    </form>
+    <div class="center v-align">
+        <h1 class="main-header">P r o j e x</h1>
+        <h3 class="main-header">Login</h3>
+        <form method="post" class="my-auto">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center">
+                <button class="btn btn-light">Login</button>
+            </div>
+        </form>
+    </div>
 {% endblock content %}

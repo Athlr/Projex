@@ -42,14 +42,43 @@ a:hover {
 .container {
     position: relative;
     background-color: #97A6A0;
-    width: 70vw;
+    width: 80vw;
     min-width: 500px;
-    height: 55vh;
+    height: 75vh;
     overflow-y: auto;
     opacity: 0.95;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.2);
+    margin: 0vh 10vw;
 }
+
+.v-align {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+/* Making Section Titles Stuck to Top  */
+.on-top {
+    position: sticky;
+    top: 0;
+    background-color: #97A6A0;
+    z-index: 2;
+}
+
+
+/* Errors for Login // Signup */
+.errorlist {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+/* Buttons */
+.btn {
+    margin-bottom: 2vh;
+}
+
 
 /* Dropdown menu */
 .dropdown-menu.show {
@@ -72,10 +101,10 @@ a:hover {
 
 /* Changing form textarea size */
 textarea {
-    height: 20vh;
+    height: 18vh;
 }
 
-/* Trying to make table rows clickable */
+/* Trying to make table rows clickable // Table */
 .table td.linking {
     padding: 0;
 }
@@ -90,6 +119,109 @@ td a:hover {
     color: black;
     text-decoration: none;
 }
+
+.edit-button:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+
+tbody {
+    background-color: #bbc4c0;
+}
+
+/* Form Check */
+.form-check {
+    min-height: 0;
+}
+
+/* Editing Bootstrap Card Body */
+.card-body {
+    background-color: #bbc4c0;
+}
+
+.sub-text {
+    font-size: 0.9em;
+}
+
+/* Notes && Sidebar */
+.sidebar {
+    background-color: #bbc4c0;
+}
+
+.sidebar aside p {
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding-top: 1vh;
+}
+
+.sidebar aside ul li:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.10);
+}
+
+.sidebar aside ul li:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sidebar aside ul li a {
+    text-decoration: none;
+}
+
+.no-decor {
+    text-decoration: none;
+}
+
+.row {
+    height: 100%;
+}
+
+.notes_textarea {
+    padding-top: 1vh;
+}
+
+.notes_textarea p textarea {
+    height: 53vh;
+    min-height: 20vh;
+}
+
+.note-width {
+    width: 95%;
+}
+
+.notes_textarea p label {
+    font-weight: bold;
+}
+
+/* Gnatt Chart */
+.gnatt-chart-container{
+    display: grid;
+    grid-template-columns: 2fr repeat(12, 1fr);
+    background-color: #bbc4c0;
+}
+
+.first-row {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.first-col {
+    grid-column: 1/2;
+}
+
+.gnatt-chart-container > div:nth-child(4n + 14) {
+    background-color: rgba(0, 0, 0, 0.10);
+}
+
+.gnatt-chart-container > div:nth-child(4n + 16) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+.gantt-bar {
+    background-color:white;
+    height: 1.25vh;
+    border-radius: 10px;
+}
+
 
 /* Making Bubbles CSS */
 
@@ -116,8 +248,8 @@ td a:hover {
 .bubble::before {
     position: absolute;
     content: "";
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
     width: 100%;
     height: 100%;
     background: rgba(136, 246, 251, 0.3);
@@ -229,6 +361,36 @@ td a:hover {
     --bubble-left-offset: 11vw;
     --bubble-radius: 1vw;
     --bubble-float-duration: 6s;
+    --bubble-sway-duration: 6s;
+    --bubble-float-delay: 0s;
+    --bubble-sway-delay: 1s;
+    --bubble-sway-type: sway-left-to-right;
+}
+
+.bubble:nth-child(11) {
+    --bubble-left-offset: 28vw;
+    --bubble-radius: 4vw;
+    --bubble-float-duration: 8s;
+    --bubble-sway-duration: 5s;
+    --bubble-float-delay: 2s;
+    --bubble-sway-delay: 3s;
+    --bubble-sway-type: sway-left-to-right;
+}
+
+.bubble:nth-child(12) {
+    --bubble-left-offset: 15vw;
+    --bubble-radius: 10vw;
+    --bubble-float-duration: 6s;
+    --bubble-sway-duration: 6s;
+    --bubble-float-delay: 1s;
+    --bubble-sway-delay: 1s;
+    --bubble-sway-type: sway-right-to-left;
+}
+
+.bubble:nth-child(13) {
+    --bubble-left-offset: 41vw;
+    --bubble-radius: 6vw;
+    --bubble-float-duration: 7s;
     --bubble-sway-duration: 6s;
     --bubble-float-delay: 0s;
     --bubble-sway-delay: 1s;

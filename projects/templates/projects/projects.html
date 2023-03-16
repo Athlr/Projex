@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="main-header center">My Projects</h1>
+    <h1 class="main-header center on-top">My Projects</h1>
     {% if projects.all|length == 0 %}
         <p>You are not assigned to any projects</p>
     {% else %}
@@ -9,7 +9,11 @@
             <thead>
                 <tr>
                     <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Priority</th>
                     <th scope="col">Number of tasks</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Del</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,7 +23,19 @@
                             <a href="{% url 'show_project' project.id %}">{{ project.name }}</a>
                         </td>
                         <td class="linking">
+                            <a href="{% url 'show_project' project.id %}">{{ project.status }}</a>
+                        </td>
+                        <td class="linking">
+                            <a href="{% url 'show_project' project.id %}">{{ project.priority }}</a>
+                        </td>
+                        <td class="linking">
                             <a href="{% url 'show_project' project.id %}">{{ project.tasks.all|length }}</a>
+                        </td>
+                        <td class="linking">
+                            <a href="{% url 'edit_project' project.id %}" class="edit-button"><i class="fas fa-edit"></i></a>
+                        </td>
+                        <td class="linking">
+                            <a href="{% url 'delete_project' project.id %}" class="edit-button"><i class="fa-solid fa-trash-can"></i></a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-2 sidebar">
+        <aside>
+            <p>{{ notes.task.name }} Notes</p>
+            <div>{{ notes.task.project.name }}</div>
+            <hr>
+            <ul class="nav nav-pills flex-column">
+                {% for note in notes.task.tasks.all %}
+                <li class="nav-item ml-2">
+                    <a href="{% url 'edit_notes' note.id %}">{{ note.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="text-center pt-3">
+                <button class="btn btn-light">
+                    <a href="{% url 'show_notes' notes.task.id %}" class="no-decor">Add Note</a>
+                </button>
+            </div>
+        </aside>
+    </div>
+    <div class="col-10">
+        <form method="post" class="notes_textarea">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center">
+                <button class="btn btn-light">Save</button>
+                <button class="btn btn-light"><a href="{% url 'delete_notes' notes.id%}" class="no-decor">Delete</a></button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

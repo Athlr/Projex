@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-2 sidebar">
+        <aside>
+            <p>{{ tasks.first }} Notes</p>
+            <div>{{ tasks.first.project.name }}</div>
+            <hr>
+            <ul class="nav nav-pills flex-column">
+                {% for note in notes %}
+                <li class="nav-item ml-2">
+                    {% comment %} Need to edit this line to edit_notes {% endcomment %}
+                    <a href="{% url 'edit_notes' note.id %}">{{ note.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>
+    </div>
+    <div class="col-10">
+        <form method="post" class="notes_textarea">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center">
+                <button class="btn btn-light">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

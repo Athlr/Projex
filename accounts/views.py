@@ -20,6 +20,8 @@ def user_login(request):
             if user is not None:
                 login(request, user)
                 return redirect("list_projects")
+            else:
+                form.add_error("username", "Username or password is incorrect")
     else:
         form = LoginForm()
 
